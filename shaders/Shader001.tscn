@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 color1 : hint_color = vec4(0.670, 0.913, 0.486, 1.0); 
+uniform vec4 color2 : hint_color = vec4(0.388, 0.827, 0.290, 1.0); 
+uniform vec4 color3 : hint_color = vec4(0.223, 0.655, 0.298, 1.0); 
+uniform vec4 color4 : hint_color = vec4(0.227, 0.471, 0.365, 1.0); 
+uniform vec4 color5 : hint_color = vec4(0.176, 0.321, 0.326, 1.0); 
+uniform vec4 color6 : hint_color = vec4(0.110, 0.184, 0.208, 1.0); 
+uniform vec4 color7 : hint_color = vec4(0.047, 0.071, 0.094, 1.0);
+
+float min7(float a, float b, float c, float d, float e, float f, float g){
+	return min(a, min(b, min(c, min(d, min(e, min(f, g))))));
+}
+
+void fragment(){
+	vec4 currentColor = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	float distance1 = distance(currentColor, color1);
+	float distance2 = distance(currentColor, color2);
+	float distance3 = distance(currentColor, color3);
+	float distance4 = distance(currentColor, color4);
+	float distance5 = distance(currentColor, color5);
+	float distance6 = distance(currentColor, color6);
+	float distance7 = distance(currentColor, color7);
+
+	if (
+		distance1 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color1;
+	}
+	else if (
+		distance2 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color2;
+	}
+	else if (
+		distance3 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color3;
+	}
+	else if (
+		distance4 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color4;
+	}
+	else if (
+		distance5 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color5;
+	}
+	else if (
+		distance6 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color6;
+	}
+	else if (
+		distance7 == min7(distance1, distance2, distance3, distance4, distance5, distance6, distance7)
+	)
+	{
+		COLOR = color7;
+	}
+	else{
+		COLOR = color1;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+render_priority = 1
+shader = SubResource( 1 )
+shader_param/color1 = Color( 1, 1, 1, 1 )
+shader_param/color2 = Color( 0.901961, 0.901961, 0.901961, 1 )
+shader_param/color3 = Color( 0.639216, 0.8, 0.670588, 1 )
+shader_param/color4 = Color( 0.45098, 0.447059, 0.560784, 1 )
+shader_param/color5 = Color( 0.364706, 0.270588, 0.380392, 1 )
+shader_param/color6 = Color( 0.25098, 0.203922, 0.184314, 1 )
+shader_param/color7 = Color( 0.101961, 0.0862745, 0.0941176, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
