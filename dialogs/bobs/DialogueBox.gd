@@ -6,6 +6,8 @@ signal dialogue_ended()
 onready var dialogue_player : DialoguePlayer = $DialogueBox/DialoguePlayer
 onready var text_label : = $DialogueBox/Panel/Text as RichTextLabel
 onready var portrait : = $DialogueBox/Panel2/Portrait as TextureRect
+onready var global_instance = get_node("/root/globalnote.gd")
+
 
 var is_available = false # Inicialmente no disponible
 
@@ -27,10 +29,10 @@ func _process(_delta):
 	#is_available = true # Marcar como no disponible
 	if Input.is_action_just_pressed("Enter"):
 		var _index_current = 0
-		show()
 		if dialogue_player._index_current < dialogue_player._conversation.size():
 			dialogue_player.next()
 			update_content()
+			global_instance._start_dialog()
 		else:
 			hide() # Oculta el cuadro de diálogo
 			emit_signal("dialogue_ended") # Emite la señal

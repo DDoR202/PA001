@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "DialoguePlayer",
 "language": "GDScript",
 "path": "res://dialogs/bobs/DialoguePlayer.gd"
+}, {
+"base": "Area2D",
+"class": "global",
+"language": "GDScript",
+"path": "res://singletons/globalnote.gd"
 } ]
 _global_script_class_icons={
 "DialogueBox": "",
-"DialoguePlayer": ""
+"DialoguePlayer": "",
+"global": ""
 }
 
 [application]

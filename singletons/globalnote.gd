@@ -4,6 +4,7 @@ export var dialogue_key = ""
 var area_active = false
 var dialogue_box_scene = load("res://dialogs/bobs/CanvasLayer.tscn") # Carga la escena
 var dialogue_box
+class_name global
 
 func _ready():
 	dialogue_box = dialogue_box_scene.instance() # Instancia la escena
