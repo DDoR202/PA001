@@ -12,12 +12,14 @@ func _ready():
 
 func _input(event):
 	if area_active and event.is_action_pressed("Enter"):
+		print("[debug] AREA IS ACTIVE and ENTER IS PRESSED")
 		_start_dialog()
 		show()
 
 func _on_Note_area_entered(area):
 	if area.is_in_group("Player"):
 		area_active = true
+		print("[debug] DETECTED PLAYER IN AREA for dnote001_Updated.gd")
 
 # func _on_Note_area_exited(area):
 	area_active = false
