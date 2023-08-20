@@ -6,7 +6,7 @@ class_name DialogueBox
 onready var dialogue_player : DialoguePlayer = $DialogueBox/DialoguePlayer
 onready var text_label : = $DialogueBox/Panel/Text as RichTextLabel
 onready var portrait : = $DialogueBox/Panel2/Portrait as TextureRect
-onready var global_instance = get_node("/root/globalnote.gd")
+onready var global_instance = get_node(".")
 
 
 var is_available = false # Inicialmente no disponible

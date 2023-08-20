@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 SignalBus="*res://singletons/SignalBus.gd"
 DialogueDatabase="*res://singletons/DialogueDatabase.gd"
+Globalnote="*res://singletons/globalnote.gd"
 
 [debug]
 
