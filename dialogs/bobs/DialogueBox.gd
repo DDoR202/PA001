@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name DialogueBox
 
-signal dialogue_ended()
+#signal dialogue_ended()
 
 onready var dialogue_player : DialoguePlayer = $DialogueBox/DialoguePlayer
 onready var text_label : = $DialogueBox/Panel/Text as RichTextLabel
@@ -29,13 +29,16 @@ func _process(_delta):
 	#is_available = true # Marcar como no disponible
 	if Input.is_action_just_pressed("Enter"):
 		var _index_current = 0
+		print ("Enter was pressed")
 		if dialogue_player._index_current < dialogue_player._conversation.size():
+			print ("Enter was pressed, _index_current < than _conversation.size()")
 			dialogue_player.next()
 			update_content()
 			global_instance._start_dialog()
 		else:
 			hide() # Oculta el cuadro de diálogo
 			emit_signal("dialogue_ended") # Emite la señal
+			print ("Dialogue has ended, closed dialogue.")
 			is_available = true # Marcar como no disponible
 
 # ...
