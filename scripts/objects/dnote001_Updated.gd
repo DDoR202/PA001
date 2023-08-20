@@ -18,7 +18,7 @@ func _on_Note_area_entered(area):
 	if area.is_in_group("Player"):
 		area_active = true
 
-func _on_Note_area_exited(area):
+# func _on_Note_area_exited(area):
 	area_active = false
 
 func _start_dialog():

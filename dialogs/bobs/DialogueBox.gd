@@ -22,14 +22,19 @@ func start(dialogue : Dictionary) -> void:
 # ...
 # En DialogueBox.gd
 func _process(_delta):
+	#hide() # Oculta el cuadro de diálogo
+	#emit_signal("dialogue_ended") # Emite la señal
+	#is_available = true # Marcar como no disponible
 	if Input.is_action_just_pressed("Enter"):
-		if dialogue_player._index_current < dialogue_player._conversation.size() - 1:
+		var _index_current = 0
+		show()
+		if dialogue_player._index_current < dialogue_player._conversation.size():
 			dialogue_player.next()
 			update_content()
 		else:
 			hide() # Oculta el cuadro de diálogo
 			emit_signal("dialogue_ended") # Emite la señal
-			is_available = false # Marcar como no disponible
+			is_available = true # Marcar como no disponible
 
 # ...
 
