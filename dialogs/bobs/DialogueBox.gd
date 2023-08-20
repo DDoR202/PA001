@@ -29,7 +29,7 @@ func _process(_delta):
 	#is_available = true # Marcar como no disponible
 	if Input.is_action_just_pressed("Enter"):
 		var _index_current = 0
-		print ("Enter was pressed")
+		print ("Enter was pressed, from _process(_delta)")
 		if dialogue_player._index_current < dialogue_player._conversation.size():
 			print ("Enter was pressed, _index_current < than _conversation.size()")
 			dialogue_player.next()
@@ -38,7 +38,7 @@ func _process(_delta):
 		else:
 			hide() # Oculta el cuadro de diálogo
 			emit_signal("dialogue_ended") # Emite la señal
-			print ("Dialogue has ended, closed dialogue.")
+			print ("Dialogue has ended, closed dialogue, from Input, 'Enter', else")
 			is_available = true # Marcar como no disponible
 
 # ...
