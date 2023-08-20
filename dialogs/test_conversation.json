@@ -1,4 +1,14 @@
 {
-    "001" : {"name":"Godette", "expression": "neutral", "text":"You found something." },
-    "002" : {"name":"Robi", "expression": "neutral", "text":"I don't know what that is, but at least it's something!" }
+  "dragontim": {
+    "text": "Hola, ¿cómo estás?",
+    "expression": "neutral"
+  },
+  "dragontim": {
+    "text": "Estoy bien, gracias por preguntar.",
+    "expression": "neutral"
+  },
+  "dragontim": {
+    "text": "¡Eso es genial!",
+    "expression": "neutral"
+  }
 }

@@ -7,6 +7,9 @@
 [ext_resource path="res://scenes/characters/PlayerAreatscn.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="dmap_001" parent="." instance=ExtResource( 1 )]
 
