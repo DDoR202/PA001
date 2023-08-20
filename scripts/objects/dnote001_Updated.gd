@@ -21,6 +21,8 @@ func _on_Note_area_entered(area):
 		area_active = true
 		print("[debug] DETECTED PLAYER IN AREA for dnote001_Updated.gd")
 
+
+
 # func _on_Note_area_exited(area):
 	area_active = false
 

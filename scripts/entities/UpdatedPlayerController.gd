@@ -43,6 +43,7 @@ func process_player_input():
 	input_direction = Vector2(0, 0)
 	if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
 		input_direction.x = 1
+		print("player moved right")
 	elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
 		input_direction.x = -1
 	elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():
