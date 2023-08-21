@@ -9,6 +9,8 @@ var target_position = Vector2(0, 0)
 var input_direction = Vector2(0, 0)
 var is_moving = false
 var percent_moved_to_next_tile = 0.0
+var current_animation_state = ""
+
 
 onready var raycast_forward = $RayCast2D_Forward
 onready var raycast_right = $RayCast2D_Right
@@ -18,6 +20,8 @@ onready var raycast_area_forward = $RayCast2D_Area_Forward
 onready var raycast_area_right = $RayCast2D_Area_Right
 onready var raycast_area_left = $RayCast2D_Area_Left
 onready var raycast_area_down = $RayCast2D_Area_Down
+onready var animation_tree = $AnimationTree
+
 
 
 
@@ -30,20 +34,44 @@ func _ready():
 func _physics_process(delta):
 	if !is_moving:
 		process_player_input()
+		update_animation() # Llama a la función de actualización de animación aquí
 		if input_direction != Vector2.ZERO and not is_collision():
 			initial_position = position
 			target_position = initial_position + GRID_SIZE * input_direction
 			is_moving = true
 	elif input_direction != Vector2.ZERO:
 		move(delta)
+		update_animation() # Llama a la función de actualización de animación aquí también
 	else:
 		is_moving = false
+		update_animation() # Asegúrate de actualizar la animación cuando el personaje se detenga
+
+
+func update_animation():
+	if not animation_tree.active:
+		return
+
+	var target_state = ""
+
+	if input_direction == Vector2.ZERO:
+		target_state = "Idle"
+	else:
+		target_state = "Walk"
+
+	# Solo llama a travel si el estado objetivo es diferente al estado actual
+	if target_state != current_animation_state:
+		animation_tree.get("parameters/playback").travel(target_state)
+		current_animation_state = target_state
+
+	if target_state == "Walk":
+		animation_tree.set("parameters/Walk/blend_position", input_direction)
+
+
 
 func process_player_input():
 	input_direction = Vector2(0, 0)
 	if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
 		input_direction.x = 1
-		print("moved right")
 	elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
 		input_direction.x = -1
 	elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():

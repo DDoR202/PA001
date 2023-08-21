@@ -84,12 +84,6 @@ config/name="AZURE"
 run/main_scene="res://scenes/levels/Level001.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-SignalBus="res://singletons/SignalBus.gd"
-DialogueDatabase="res://singletons/DialogueDatabase.gd"
-Globalnote="res://singletons/globalnote.gd"
-
 [debug]
 
 shapes/collision/shape_color=Color( 1, 1, 1, 0.419608 )

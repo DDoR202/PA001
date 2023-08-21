@@ -1,7 +1,7 @@
 {
 	"events": [
 		{
-			"animation": "[Default]",
+			"animation": "1-fade_in.gd",
 			"animation_length": 0,
 			"animation_wait": false,
 			"change_mirror_portrait": false,
@@ -9,7 +9,7 @@
 			"character": "character-1692582952.json",
 			"event_id": "dialogic_002",
 			"mirror_portrait": false,
-			"portrait": "neutral",
+			"portrait": "Default",
 			"portrait_definition": "",
 			"position": {
 				"0": true,
@@ -25,12 +25,37 @@
 			"character": "character-1692582952.json",
 			"event_id": "dialogic_001",
 			"portrait": "(Don't change)",
-			"text": "This is a sample text."
+			"text": "This is a sample text. Lorem ipsum dolor et sum"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0.2,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.5",
 		"file": "timeline-1692583107.json",
-		"name": "dnote"
+		"name": "dnote000"
 	}
 }
