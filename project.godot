@@ -59,25 +59,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
-"base": "CanvasLayer",
-"class": "DialogueBox",
-"language": "GDScript",
-"path": "res://dialogs/bobs/DialogueBox.gd"
-}, {
-"base": "Node",
-"class": "DialoguePlayer",
-"language": "GDScript",
-"path": "res://dialogs/bobs/DialoguePlayer.gd"
-}, {
 "base": "PanelContainer",
 "class": "HistoryRow",
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
-}, {
-"base": "Area2D",
-"class": "global",
-"language": "GDScript",
-"path": "res://singletons/globalnote.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -90,10 +75,7 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"DialogueBox": "",
-"DialoguePlayer": "",
-"HistoryRow": "",
-"global": ""
+"HistoryRow": ""
 }
 
 [application]
