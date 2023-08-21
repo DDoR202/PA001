@@ -86,9 +86,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SignalBus="*res://singletons/SignalBus.gd"
-DialogueDatabase="*res://singletons/DialogueDatabase.gd"
-Globalnote="*res://singletons/globalnote.gd"
+SignalBus="res://singletons/SignalBus.gd"
+DialogueDatabase="res://singletons/DialogueDatabase.gd"
+Globalnote="res://singletons/globalnote.gd"
 
 [debug]
 
@@ -106,7 +106,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
 
 [gui]
 

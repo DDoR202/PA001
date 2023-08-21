@@ -1,0 +1,25 @@
+{
+	"color": "#fff6f5a9",
+	"description": "",
+	"display_name": "Note",
+	"display_name_bool": true,
+	"id": "character-1692582952.json",
+	"mirror_portraits": true,
+	"name": "note",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -9,
+	"offset_y": -16,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "neutral",
+			"path": "res://assets/images/characters/portraits/dt_neutral.png"
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1692572060.cfg"
+}

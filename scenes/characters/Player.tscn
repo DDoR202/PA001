@@ -10,7 +10,7 @@
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 13.5, 14 )
+extents = Vector2( 16, 16 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_mask = 4
@@ -92,7 +92,6 @@ collide_with_bodies = false
 visible = false
 
 [node name="CanvasLayer2" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [node name="Shader003bg" parent="." instance=ExtResource( 6 )]
 layer = -10
@@ -109,5 +108,6 @@ position = Vector2( 16, 48 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 15.5, 48 )
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 16, 48 )
 shape = SubResource( 2 )
