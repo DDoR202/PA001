@@ -2,7 +2,7 @@ extends Area2D
 
 export(String) var dialogue_index # Variable exportada, asignable en el Inspector
 var active = false
-var dialogue_active = false # Variable para controlar si hay un diálogo activo
+var dialogue_active = false # Variable para controlar si hay un diálogo activo AQUIAQUIAQUIAUQIAUIQAUAIQUAIQUAIQUAIQUQIUQIAQUIAQUIAQUI swuing swuong
 
 func _ready():
 	connect("body entered", self, '_on_Note_body_entered')

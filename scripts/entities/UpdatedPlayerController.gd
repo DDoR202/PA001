@@ -22,9 +22,6 @@ onready var raycast_area_left = $RayCast2D_Area_Left
 onready var raycast_area_down = $RayCast2D_Area_Down
 onready var animation_tree = $AnimationTree
 
-
-
-
 func _ready():
 	for raycast in [raycast_forward, raycast_right, raycast_left, raycast_down]:
 		raycast.enabled = true
@@ -67,17 +64,17 @@ func update_animation():
 		animation_tree.set("parameters/Walk/blend_position", input_direction)
 
 
-
 func process_player_input():
 	input_direction = Vector2(0, 0)
-	if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
-		input_direction.x = 1
-	elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
-		input_direction.x = -1
-	elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():
-		input_direction.y = 1
-	elif Input.is_action_pressed("Up") and not raycast_forward.is_colliding():
-		input_direction.y = -1
+	if not dialogue_active: #####FIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
+			input_direction.x = 1
+		elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
+			input_direction.x = -1
+		elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():
+			input_direction.y = 1
+		elif Input.is_action_pressed("Up") and not raycast_forward.is_colliding():
+			input_direction.y = -1
 
 func is_collision():
 	return false
