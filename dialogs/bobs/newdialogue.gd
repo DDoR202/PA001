@@ -2,7 +2,7 @@ extends Area2D
 
 export(String) var dialogue_index # Variable exportada, asignable en el Inspector
 var active = false
-var dialogue_active = false # Variable para controlar si hay un diálogo activo AQUIAQUIAQUIAUQIAUIQAUAIQUAIQUAIQUAIQUQIUQIAQUIAQUIAQUI swuing swuong
+var dialogue_active = false 
 
 func _ready():
 	connect("body entered", self, '_on_Note_body_entered')
@@ -18,8 +18,6 @@ func _on_Note_body_exited(body:Node):
 		active = false # Restablecer 'active' a falso cuando el jugador sale del área
 		$AnimationPlayer.play_backwards("fade_in") # Reproduce la animación "fade_in"
 
-func _process(_delta):
-	$QuestionMark.visible = active
 
 func _input(event):
 	if not dialogue_active: # Solo permite iniciar el diálogo si no hay uno activo
@@ -30,7 +28,7 @@ func _input(event):
 			dialog.connect('tree_exited', self, '_on_dialogue_tree_exited') # Conectar la señal de fin del diálogo
 			add_child(dialog)
 			dialogue_active = true # Marca el diálogo como activo
-			get_tree().paused = false
 
 func _on_dialogue_tree_exited(): # Función para manejar el fin del diálogo
 	dialogue_active = false
+	get_tree().paused = false # Reanuda el juego aquí

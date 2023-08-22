@@ -225,6 +225,7 @@ graph_offset = Vector2( -189, -65 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
+pause_mode = 2
 collision_mask = 4
 script = ExtResource( 2 )
 
@@ -234,7 +235,6 @@ texture = ExtResource( 1 )
 centered = false
 hframes = 3
 vframes = 4
-frame = 7
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="."]
 position = Vector2( 16, 48 )

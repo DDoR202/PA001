@@ -29,6 +29,8 @@ func _ready():
 
 
 func _physics_process(delta):
+	if Newdialogue.dialogue_active: # Si hay un diálogo activo, no hacer nada
+		return
 	if !is_moving:
 		process_player_input()
 		update_animation() # Llama a la función de actualización de animación aquí
@@ -65,16 +67,18 @@ func update_animation():
 
 
 func process_player_input():
+	if Newdialogue.dialogue_active:
+		print("wawawa")
 	input_direction = Vector2(0, 0)
-	if not dialogue_active: #####FIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-		if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
-			input_direction.x = 1
-		elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
-			input_direction.x = -1
-		elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():
-			input_direction.y = 1
-		elif Input.is_action_pressed("Up") and not raycast_forward.is_colliding():
-			input_direction.y = -1
+	if Input.is_action_pressed("Right") and not raycast_right.is_colliding():
+		input_direction.x = 1
+	elif Input.is_action_pressed("Left") and not raycast_left.is_colliding():
+		input_direction.x = -1
+	elif Input.is_action_pressed("Down") and not raycast_down.is_colliding():
+		input_direction.y = 1
+	elif Input.is_action_pressed("Up") and not raycast_forward.is_colliding():
+		input_direction.y = -1
+
 
 func is_collision():
 	return false
