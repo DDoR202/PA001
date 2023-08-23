@@ -87,6 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Newdialogue="*res://dialogs/bobs/newdialogue.gd"
+PlayerAnimations="*res://scripts/entities/PlayerAnimations.gd"
 
 [debug]
 
