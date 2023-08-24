@@ -11,7 +11,6 @@ var is_moving = false
 var percent_moved_to_next_tile = 0.0
 var current_animation_state = ""
 var can_move = true setget set_can_move
-var move_direction = Vector2.ZERO
 var last_input_direction = Vector2(0, 0)
 
 onready var raycast_forward = $RayCast2D_Forward
@@ -30,50 +29,39 @@ func _ready():
 		raycast.enabled = true
 		raycast.collision_mask = 2
 
-
 func _physics_process(delta):
 	if Newdialogue.dialogue_active: # Si hay un diálogo activo, no hacer nada
 		return
 	if !is_moving:
 		process_player_input()
-		update_animation() # Llama a la función de actualización de animación aquí
+		update_animation()
 		if input_direction != Vector2.ZERO and not is_collision():
 			initial_position = position
 			target_position = initial_position + GRID_SIZE * input_direction
 			is_moving = true
+		if input_direction != Vector2.ZERO:
+			last_input_direction = input_direction
 	elif input_direction != Vector2.ZERO:
 		move(delta)
-		update_animation() # Llama a la función de actualización de animación aquí también
+		update_animation()
 	else:
 		is_moving = false
-		update_animation() # Asegúrate de actualizar la animación cuando el personaje se detenga
-	if !is_moving:
-		process_player_input()
-		if input_direction != Vector2.ZERO:
-			last_input_direction = input_direction # Actualiza la dirección anterior
 		update_animation()
-
 
 func update_animation():
 	if not animation_tree.active:
 		return
 
-	var target_state = ""
-	var blend_position = input_direction # Utiliza esta variable para el blendspace
+	var blend_position = input_direction if input_direction != Vector2.ZERO else last_input_direction
 
-	if input_direction == Vector2.ZERO:
-		target_state = "Idle"
-		blend_position = last_input_direction # Usa la dirección anterior para el estado Idle
-	else:
-		target_state = "Walk"
+	var target_state = "Walk" if input_direction != Vector2.ZERO else "Idle"
 
-	# Solo llama a travel si el estado objetivo es diferente al estado actual
 	if target_state != current_animation_state:
 		animation_tree.get("parameters/playback").travel(target_state)
 		current_animation_state = target_state
 
-	if target_state == "Walk" or target_state == "Idle":
-		animation_tree.set("parameters/Walk/blend_position", blend_position) # Usa blend_position aquí
+	animation_tree.set("parameters/Walk/blend_position", blend_position)
+
 
 
 
@@ -105,12 +93,12 @@ func process_player_input():
 			input_direction.y = 1
 		elif Input.is_action_pressed("Up") and not raycast_forward.is_colliding():
 			input_direction.y = -1
-	if(move_direction.x != 0):
-		move_direction.y = 0
+	if(input_direction.x != 0):
+		input_direction.y = 0
 		
-	if(move_direction != Vector2.ZERO):
-		animation_tree.set("parameters/Walk/blend_position", move_direction)
-		animation_tree.set("parameters/Idle/blend_position", move_direction)
+	if(input_direction != Vector2.ZERO):
+		animation_tree.set("parameters/Walk/blend_position", input_direction)
+		animation_tree.set("parameters/Idle/blend_position", input_direction)
 		
 
 

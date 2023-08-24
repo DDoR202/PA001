@@ -63,6 +63,21 @@ _global_script_classes=[ {
 "class": "HistoryRow",
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
+}, {
+"base": "Node",
+"class": "Thoth",
+"language": "GDScript",
+"path": "res://scripts/thoth.gd"
+}, {
+"base": "Node",
+"class": "ThothGameState",
+"language": "GDScript",
+"path": "res://addons/thoth/thoth_gamestate.gd"
+}, {
+"base": "Node",
+"class": "ThothSerializer",
+"language": "GDScript",
+"path": "res://addons/thoth/thoth_serializer.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -75,7 +90,10 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"HistoryRow": ""
+"HistoryRow": "",
+"Thoth": "",
+"ThothGameState": "",
+"ThothSerializer": ""
 }
 
 [application]
@@ -86,8 +104,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Newdialogue="*res://dialogs/bobs/newdialogue.gd"
 PlayerAnimations="*res://scripts/entities/PlayerAnimations.gd"
+Newdialogue="*res://dialogs/bobs/newdialogue.gd"
 
 [debug]
 
@@ -105,7 +123,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/thoth/plugin.cfg" )
 
 [gui]
 
