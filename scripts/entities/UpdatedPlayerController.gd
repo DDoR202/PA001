@@ -17,10 +17,6 @@ onready var raycast_forward = $RayCast2D_Forward
 onready var raycast_right = $RayCast2D_Right
 onready var raycast_left = $RayCast2D_Left
 onready var raycast_down = $RayCast2D_Down
-onready var raycast_area_forward = $RayCast2D_Area_Forward
-onready var raycast_area_right = $RayCast2D_Area_Right
-onready var raycast_area_left = $RayCast2D_Area_Left
-onready var raycast_area_down = $RayCast2D_Area_Down
 onready var animation_tree = $AnimationTree
 onready var animation_state = $AnimationTree.get("parameters/playback")
 
